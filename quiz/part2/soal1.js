@@ -18,6 +18,7 @@ Return 2
 */
 function digitPerkalianMinimum(angka) {
     // you can only write your code here!
+    
   }
   
   // TEST CASES

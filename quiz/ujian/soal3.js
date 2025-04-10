@@ -1,5 +1,16 @@
 function highestScore (students) {
     // Code disini
+    let array = [];
+    let arr = [];
+
+    for(let i = 0; i < students.length; i++){
+      for(let key in students[i]){
+        arr.push(students[i][key]);
+      }
+      array.push(arr);
+      arr = [];
+    }
+    return array;
   }
   
   // TEST CASE

@@ -18,6 +18,37 @@ function countProfit(shoppers) {
                      ];
   
     // you can only write your code here!
+    let gruop = [];
+    let sepatu = [];
+    let nama;
+    let produk;
+    let sisa;
+    let harga;
+
+    for(let t = 0; t < listBarang.length; t++){
+    produk = listBarang[t][0];
+    sisa = listBarang[t][2];
+    harga = listBarang[t][1];
+    for(let i = 0; i < shoppers.length; i++){
+      for(let key in shoppers[i]){
+        nama = shoppers[i].name;
+        beli = shoppers[i].amount;
+          
+
+      }
+      if(produk === shoppers[i].product && sisa >= beli){
+        sepatu.push(nama);
+        sisa -= beli;
+        harga *= beli;
+    }
+      // gruop.push(sepatu);
+      nama = undefined;
+      // sepatu = [];
+    }
+    gruop.push(sepatu);
+    sepatu = [];
+  }
+    return harga;
   }
   
   // TEST CASES
@@ -61,4 +92,4 @@ function countProfit(shoppers) {
   //     shoppers: [],
   //     leftOver: 1,
   //     totalProfit: 0 } ]
-  console.log(countProfit([])); //[]
+  // console.log(countProfit([])); //[]

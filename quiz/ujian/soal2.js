@@ -9,6 +9,33 @@ Contoh: input: [['Dimitri', 'B', 'F']] output: [{ penumpang: 'Dimitri', naikDari
 function naikAngkot(arrPenumpang) {
     rute = ['A', 'B', 'C', 'D', 'E', 'F'];
     //your code here
+    let obj = {};
+    let jarak;
+    let p;
+    let q;
+
+
+    let arr = [];
+    for(let i = 0; i < arrPenumpang.length; i++){
+      obj.penumpang = arrPenumpang[i][0];
+      obj.naikDari = arrPenumpang[i][1];
+      obj.tujuan = arrPenumpang[i][2];
+      obj.bayar;
+      arr.push(obj);
+      obj = {};
+    }
+    
+    for(let i = 0; i < arrPenumpang.length; i++){
+      for(let j = 0; j < arrPenumpang[i].length; j++){
+        for(let k = 0; k < rute.length; k++){
+          if(arrPenumpang[i][j] === rute[k]){
+            p = k;
+            q = k
+          }
+        }
+      }
+    }
+    return jarak;
   }
   
   //TEST CASE

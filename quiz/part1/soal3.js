@@ -1,15 +1,22 @@
 function cariMedian(arr) {
     // you can only write your code here!
-    const rumusGenap = (arr.length - 1) / 2;
-    const rumusGanjil = arr.length - 1;
-    const uhuu = (rumusGanjil + 1) / 2;
-    // if (arr.length % 2 === 0){
-    //   return (arr[rumusGenap] + arr[rumusGenap + 1]) / 2;
-    // } else {
-    //   return arr[rumusGanjil] / 2;
-    // }
-    return arr[uhuu];
     
+    let cekMed;
+    for (let i = 0; i < arr.length; i++) {         
+      for (let j = 0; j < arr.length - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+          [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]; 
+        }
+      }
+    }
+    const median = arr.length / 2;
+    if(arr.length % 2 === 0){
+      arr = (arr[median] + arr[(median - 1)]) / 2; 
+    } else {
+      arr = arr[Math.floor(median)];
+    }
+
+    return arr;
   }
   
   // TEST CASES

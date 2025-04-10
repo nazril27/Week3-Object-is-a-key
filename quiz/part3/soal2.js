@@ -22,7 +22,39 @@ maka output:
 
 function shoppingTime(memberId, money) {
     // you can only write your code here!
+  let buyer = {};
+  let brand = [];
+  
+  if(!memberId){
+    return 'Mohon maaf, toko X hanya berlaku untuk member saja';
   }
+  if(money < 50000){
+    return 'Mohon maaf, uang tidak cukup';
+  }
+
+  const price = {
+    'Sepatu brand Stacattu': 1500000,
+    'Baju brand Zoro': 500000,
+    'Baju brand H&N': 250000,
+    'Sweater brand Uniklooh': 175000,
+    'Casing Handphone': 50000
+  }
+
+  buyer.memberId = memberId;
+  buyer.money = money;
+
+  for(let key in price){
+    if(money >= price[key]){
+      brand.push(key);
+      money -= price[key];
+    }
+  }
+  
+  buyer.listPurchased = brand;
+  buyer.changeMoney = money;
+  
+  return buyer;
+}
   
   // TEST CASES
   console.log(shoppingTime('1820RzKrnWn08', 2475000));

@@ -3,17 +3,15 @@ Diberikan sebuah function cariModus(arr) yang menerima sebuah array angka. Funct
 */
 function cariModus(arr) {
     // you can only write your code here!
-    let modus = [];
-    let cekPerbedaan = 0;
-    for (let i = 0; i < arr.length; i++){
-      for (let j = 0; j < arr.length; j++){
-        if(i !== j && arr[i] === arr[j]){
-          cekPerbedaan++;
-          modus.push(arr[i]);
+    let sortArr = arr;
+    for(let i = 0; i < sortArr.length; i++){
+      for(let j = 0; j < sortArr.length - 1; j++){
+        if(sortArr[j] > sortArr[j + 1]){
+          [sortArr[j], sortArr[j + 1]] = [sortArr[j + 1], sortArr[j]];
         }
       }
     }
-    return cekPerbedaan;
+    return arr;
   }
   
   // TEST CASES
@@ -22,3 +20,5 @@ function cariModus(arr) {
   console.log(cariModus([10, 3, 1, 2, 5])); // -1
   console.log(cariModus([1, 2, 3, 3, 4, 5])); // 3
   console.log(cariModus([7, 7, 7, 7, 7])); // -1
+
+  // console.log(cariModus([7, 7, 7, 7]));
