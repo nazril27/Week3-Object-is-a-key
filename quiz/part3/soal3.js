@@ -18,38 +18,46 @@ function countProfit(shoppers) {
                      ];
   
     // you can only write your code here!
-    let gruop = [];
-    let sepatu = [];
-    let nama;
-    let produk;
-    let sisa;
-    let harga;
+    if (shoppers.length === 0) {
+      return shoppers;
+    }
 
-    for(let t = 0; t < listBarang.length; t++){
-    produk = listBarang[t][0];
-    sisa = listBarang[t][2];
-    harga = listBarang[t][1];
-    for(let i = 0; i < shoppers.length; i++){
-      for(let key in shoppers[i]){
-        nama = shoppers[i].name;
-        beli = shoppers[i].amount;
-          
+    let result = [];
+    let konsumen, obj;
+    let namaPembeli, produk, stok, harga, jmlMembeli, membeliProduk, totalTerjual;
 
+    for(let i = 0; i < listBarang.length; i++){
+      produk = listBarang[i][0];
+      harga = listBarang[i][1];
+      stok = listBarang[i][2];
+      konsumen = [];
+      totalTerjual = 0;
+
+        for(let j = 0; j < shoppers.length; j++){
+          obj = {};
+          for(let key in shoppers[j]){
+            namaPembeli = shoppers[j].name;
+            jmlMembeli = shoppers[j].amount;
+            membeliProduk = shoppers[j].product;
+          }
+
+          if(produk === membeliProduk && stok >= jmlMembeli){
+            stok -= jmlMembeli;
+            totalTerjual += jmlMembeli;
+            konsumen.push(namaPembeli);
+        }
+
+        obj.product = produk;
+        obj.shoppers = konsumen;
+        obj.leftOver = stok; 
+        obj.totalProfit = harga * totalTerjual;
       }
-      if(produk === shoppers[i].product && sisa >= beli){
-        sepatu.push(nama);
-        sisa -= beli;
-        harga *= beli;
-    }
-      // gruop.push(sepatu);
-      nama = undefined;
-      // sepatu = [];
-    }
-    gruop.push(sepatu);
-    sepatu = [];
+
+      result.push(obj);
   }
-    return harga;
-  }
+
+  return result;
+}
   
   // TEST CASES
   console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 2}, {name: 'Vanessa', product: 'Sepatu Stacattu', amount: 3}, {name: 'Rani', product: 'Sweater Uniklooh', amount: 2}]));
@@ -92,4 +100,4 @@ function countProfit(shoppers) {
   //     shoppers: [],
   //     leftOver: 1,
   //     totalProfit: 0 } ]
-  // console.log(countProfit([])); //[]
+  console.log(countProfit([])); //[]

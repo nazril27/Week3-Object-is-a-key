@@ -4,6 +4,11 @@ Implementasikan function deepSum untuk mendapatkan jumlah pertambahan dari angka
 
 function deepSum (arr) {
     // Code disini
+
+    if (arr.length === 0) {
+      return 'No number';
+    }
+
     let sum = 0;
     for (let i = 0; i < arr.length; i++){
       for (let j = 0; j < arr[i].length; j++){

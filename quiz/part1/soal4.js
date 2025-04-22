@@ -3,16 +3,28 @@ Diberikan sebuah function cariModus(arr) yang menerima sebuah array angka. Funct
 */
 function cariModus(arr) {
     // you can only write your code here!
-    let sortArr = arr;
-    for(let i = 0; i < sortArr.length; i++){
-      for(let j = 0; j < sortArr.length - 1; j++){
-        if(sortArr[j] > sortArr[j + 1]){
-          [sortArr[j], sortArr[j + 1]] = [sortArr[j + 1], sortArr[j]];
-        }
-      }
+  let result = -1;
+  let obj = {};
+  let modus = 1;
+  
+  for (let i = 0; i < arr.length; i++) {
+    let key = ` ${arr[i]} `;
+    if (!obj[key]) {
+      obj[key] = 1;
+    } else {
+      obj[key] += 1;
     }
-    return arr;
   }
+
+  for (let key in obj) {
+    if (modus < obj[key] && obj[key] !== arr.length) {
+      modus = obj[key];
+      result = key;
+    }
+  }
+
+ return Number(result);
+}
   
   // TEST CASES
   console.log(cariModus([10, 4, 5, 2, 4])); // 4
@@ -20,5 +32,4 @@ function cariModus(arr) {
   console.log(cariModus([10, 3, 1, 2, 5])); // -1
   console.log(cariModus([1, 2, 3, 3, 4, 5])); // 3
   console.log(cariModus([7, 7, 7, 7, 7])); // -1
-
-  // console.log(cariModus([7, 7, 7, 7]));
+  

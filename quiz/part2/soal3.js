@@ -1,31 +1,26 @@
 //TIPS: gunakan method toUpperCase() dan toLowerCase()
 function tukarBesarKecil(kalimat) {
     // you can only write your code here!
-    let arr = [];
+    const alfabet = 'abcdefghijklmnopqrstuvwxyz';
+    const notAlfabet = '1234567890!@#$%^&*()- ';
     let result = '';
-    const alfabet = 'abcdefghijklmnopqrstuvwxyz1234567890';
-    const hurufBadag = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ-/?.<>,;[]=+-_{}$!@#%^&*()';
 
-    for (let i = 0; i < kalimat.length; i++){
-      for (let j = 0; j < alfabet.length; j++){
-        if (kalimat[i] === alfabet[j]){
-          arr[i] = kalimat[i].toUpperCase();
-        } 
-      }
-    }
-   
-    for (let k = 0; k < kalimat.length; k++){
-      for (let l = 0; l < hurufBadag.length; l++){
-        if(kalimat[k] === hurufBadag[l]){
-          arr[k] = kalimat[k].toLowerCase();
+    for (let i = 0; i < kalimat.length; i++) {
+      for (let j = 0; j < alfabet.length; j++) {
+
+        if (kalimat[i] === alfabet[j].toUpperCase()) {
+         result += kalimat[i].toLowerCase();
         }
+        if (kalimat[i] === alfabet[j]) {
+         result += kalimat[i].toUpperCase();
+        }
+        if (kalimat[i] === notAlfabet[j]) {
+          result += kalimat[i];
+        }
+        
       }
     }
 
-    for (let m = 0; m < arr.length; m++){
-      result += arr[m];
-    }
-    
     return result;
   }
   

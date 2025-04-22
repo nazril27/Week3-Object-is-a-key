@@ -9,33 +9,33 @@ Contoh: input: [['Dimitri', 'B', 'F']] output: [{ penumpang: 'Dimitri', naikDari
 function naikAngkot(arrPenumpang) {
     rute = ['A', 'B', 'C', 'D', 'E', 'F'];
     //your code here
-    let obj = {};
-    let jarak;
-    let p;
-    let q;
-
-
+    let titikAkhir, titikAwal;
     let arr = [];
-    for(let i = 0; i < arrPenumpang.length; i++){
-      obj.penumpang = arrPenumpang[i][0];
-      obj.naikDari = arrPenumpang[i][1];
-      obj.tujuan = arrPenumpang[i][2];
-      obj.bayar;
+    let obj = {};
+
+    for (let i = 0; i < arrPenumpang.length; i++){
+      for (let j = 0; j < arrPenumpang[i].length; j++){
+        obj.penumpang = arrPenumpang[i][0];
+        obj.naikDari = arrPenumpang[i][1];
+        obj.tujuan = arrPenumpang[i][2];
+
+        for (let k = 0; k < rute.length; k++){
+          if (obj.naikDari === rute[k]) {
+            titikAwal = k;
+          }
+          if (obj.tujuan === rute[k]) {
+            titikAkhir = k;
+          }
+        }
+    
+      }
+      
+      titikAkhir -= titikAwal;
+      obj.ongkos = titikAkhir * 2000;
       arr.push(obj);
       obj = {};
     }
-    
-    for(let i = 0; i < arrPenumpang.length; i++){
-      for(let j = 0; j < arrPenumpang[i].length; j++){
-        for(let k = 0; k < rute.length; k++){
-          if(arrPenumpang[i][j] === rute[k]){
-            p = k;
-            q = k
-          }
-        }
-      }
-    }
-    return jarak;
+    return arr;
   }
   
   //TEST CASE

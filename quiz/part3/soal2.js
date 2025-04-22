@@ -33,10 +33,10 @@ function shoppingTime(memberId, money) {
   }
 
   const price = {
-    'Sepatu brand Stacattu': 1500000,
-    'Baju brand Zoro': 500000,
-    'Baju brand H&N': 250000,
-    'Sweater brand Uniklooh': 175000,
+    'Sepatu Stacattu': 1500000,
+    'Baju Zoro': 500000,
+    'Baju H&N': 250000,
+    'Sweater Uniklooh': 175000,
     'Casing Handphone': 50000
   }
 

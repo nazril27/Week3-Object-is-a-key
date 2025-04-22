@@ -18,7 +18,27 @@ Return 2
 */
 function digitPerkalianMinimum(angka) {
     // you can only write your code here!
-    
+    let mid, beforeMid;
+    let result = '';
+    let arr = [];
+
+    for (let i = 0; i <= angka; i++) {
+      if (angka % i === 0) {
+        arr.push(i);
+      }
+    }
+
+    if (arr.length === 1) {
+        return 2;
+    } else if (arr.length === 3) {
+        result += `${arr[0]}${arr[arr.length - 1]}`;
+        return result.length;
+    } else {
+        mid = arr.length / 2;
+        beforeMid = mid - 1;
+        result += `${arr[mid]}${arr[beforeMid]}`;
+        return result.length;
+    }
   }
   
   // TEST CASES

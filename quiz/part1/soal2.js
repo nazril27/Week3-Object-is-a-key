@@ -1,19 +1,20 @@
 //cari faktor persekutuan terbesar
 function fpb(angka1, angka2) {
     // you can only write your code here!
-    let arr = [];
-    let siapaYangGede;
+    let gedeMana, result;
+
     if(angka1 > angka2){
-      siapaYangGede = angka1;
+      gedeMana = angka1;
     } else {
-      siapaYangGede = angka2;
+      gedeMana = angka2;
     }
-    for(let i = 1; i <= siapaYangGede; i++){
+
+    for(let i = 1; i <= gedeMana; i++){
       if(angka1 % i === 0 && angka2 % i === 0){
-        arr.push(i);
+        result = i;
       }
     }
-    return arr[arr.length - 1];
+    return result;
   }
   
   // TEST CASES

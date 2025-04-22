@@ -2,19 +2,23 @@
 //intinya ubah huruf menjadi huruf setelahnya
 function ubahHuruf(kata) {
     // you can only write your code here!
-    let index = [];
+    const alfabet = 'abcdefghijklmnopqrstuvwxyz';
     let result = '';
-    let alfabet = 'abcdefghijklmnopqrstuvwxyz';
+
     for (let i = 0; i < kata.length; i++){
       for (let j = 0; j < alfabet.length; j++){
+
         if(kata[i] === alfabet[j]){
-          index.push(j + 1);
+          if(alfabet[j + 1] === undefined){
+            result += alfabet[j - j];
+          } else {
+            result += alfabet[j + 1];
+          }
+          
         }
       }
     }
-    for (let k = 0; k < index.length; k++){
-      result += alfabet[index[k]];
-    }
+    
     return result;
   }
   

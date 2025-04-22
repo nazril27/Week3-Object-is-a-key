@@ -2,13 +2,13 @@
 //cek google bagi yang ga tau apa itu angka prima
 function angkaPrima(angka) {
     // you can only write your code here!
-    let isPrime = 0;
-    for (let i = 0; i <= angka; i++){
+    let hitung = 0;
+    for (let i = 1; i <= angka; i++){
       if(angka % i === 0){
-        isPrime++;
+        hitung++;
       }
     }
-    return isPrime === 2;
+    return hitung === 2;
   }
   
   // TEST CASES

@@ -4,6 +4,7 @@ function urutkanAbjad(str) {
     // you can only write your code here!
     const alfabet = 'abcdefghijklmnopqrstuvwxyz';
     let order = '';
+
     for (let i = 0; i < alfabet.length; i++){
       for (let j = 0; j < str.length; j++){
         if(alfabet[i] === str[j]){
@@ -11,6 +12,7 @@ function urutkanAbjad(str) {
         }
       }
     }
+    
     return order;
   }
   
